@@ -10,6 +10,7 @@
   --font-size-about: 1.2rem;
   --font-size-details: 1rem;
   --principal-color: #FAD200;
+  --second-color: rgb(122, 102, 0);
 }
 
 * {
@@ -17,7 +18,7 @@
   font-size: var(--font-size-details);
   margin: 0;
   padding: 0;
-  color: transparent;
+  color: #FFFAFA;
   animation: text_reveal 0.5s ease forwards;
 }
 
@@ -30,6 +31,7 @@ body {
   height: 100vh;
   min-height: 20vh;
   background: var(--principal-color);
+  overflow: hidden;
 }
 
 h1 {
@@ -47,10 +49,9 @@ a:focus {
 #navbar {
   position: fixed;
   display: flex;
+  height: 10rem;
   flex-direction: row;
   width: 100%;
-  height: 10rem;
-  background: linear-gradient(to bottom, var(--principal-color) 75%, transparent 95%);
 }
 
 #navbar .hover-this {
@@ -66,16 +67,29 @@ a:focus {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin: 0.8rem 1rem 1rem 1rem;
   padding: 0.5rem;
   text-align: center;
   font-weight: 600;
   animation-delay: 0.5s;
 }
 
-#navbar .navbar_left .logo {
+#navbar .navbar_left {
+  margin: 1rem;
+}
+
+#navbar .navbar_left .logo-container {
   position: relative;
-  top: 1rem;
+  display: flex;
+  padding: 0;
+  margin: 1rem;
+  width: 100%;
+  background: var(--principal-color);
+  justify-content: center;
+}
+
+#navbar .navbar_left .logo-container .logo {
+  position: relative;
+  display: inline-block;
   border: 1.2rem solid #fff;
   border-bottom: 1.2rem solid #fff;
   border-radius: .25rem;
@@ -83,32 +97,29 @@ a:focus {
   opacity: 0;
   transition: transform 4s .25s cubic-bezier(0,1,.3,1),
               opacity .3s .25s ease-out;
-  width: 75%;
+  width: 100%;
   will-change: transform, opacity;
 	outline: 0;
 	color: #fff;
 	line-height: 2rem;
-	position: relative;
 	text-align: center;
-	display: inline-block;
 	text-decoration: none;
 }
 
-#navbar .navbar_left .logo:hover:after{
+#navbar .navbar_left .logo-container .logo:hover:after{
   opacity: 1;
   transform: translateY(35%) rotateX(0);
 }
 
-#navbar .navbar_left .logo:hover:before{
+#navbar .navbar_left .logo-container .logo:hover:before{
   opacity: 0;
   transform: translateY(50%) rotateX(90deg);
 }
 
-#navbar .navbar_left .logo:after{
+#navbar .navbar_left .logo-container .logo:after{
   top: 0;
-  left: 0;
   opacity: 0;
-  width: 100%;
+  width: 91%;
   color: var(--principal-color);
   font-size: 1.2rem;
   display: block;
@@ -119,12 +130,12 @@ a:focus {
   transform: translateY(-50%) rotateX(90deg);
 }
 
-#navbar .navbar_left .logo:before{
+#navbar .navbar_left .logo-container .logo:before{
   top: 0;
   left: 0;
   opacity: 1;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   display: block;
   padding: 0 30px;
   line-height: 40px;
@@ -140,6 +151,7 @@ a:focus {
   width: 1rem;
   left: 3.5rem;
   top: 4.5rem;
+  margin: 0.8rem 1rem 1rem 1rem;
 }
 
 #navbar .navbar_left #about_navbar span {
@@ -152,21 +164,68 @@ a:focus {
 
 #navbar .navbar_right {
   position: relative;
+  height: 2rem;
   align-items: center;
   top: 3.5rem;
-  left: 44rem;
+  left: 45rem;
 }
 
-#navbar .navbar_right a span {
+#navbar .navbar_right .navbar_right-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  column-gap: 2rem;
+}
+
+#navbar .navbar_right .navbar_right-container a {
+  position: relative;
   display: inline-block;
-  margin: 0 0 0 2.5rem;
+  color: rgba(0, 0, 0, .85);
+  border-radius: 0.5rem;
+  text-align:center;
+  transition: all .2s ease;
+}
+
+#navbar .navbar_right .navbar_right-container a:hover,
+#navbar .navbar_right .navbar_right-container a:focus {
+  transform: scale(1.2);
+  color: rgba(0, 0, 0, 1);
+}
+
+#navbar .navbar_right .navbar_right-container a:hover:after,
+#navbar .navbar_right .navbar_right-container a:focus:after {
+  transform: scaleX(1);
+}
+
+#navbar .navbar_right .navbar_right-container a:after {
+  background-color: var(--second-color);
+  width: 4.5rem;
+  height: 0.15rem;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 0.5rem;
+  transform: scaleX(0);
+  transition: all .2s ease;
+  position: absolute;
+  content: '';
+}
+
+#navbar .navbar_right .navbar_right-container a span {
+  display: inline-block;
+  margin: 0;
+  padding: 1rem;
   font-size: var(--font-size-nav);
 }
 
-#navbar .navbar_left .logo.is-visible,
-#contact .contact-contain a.is-visible {
-  opacity: 1;
+#navbar .navbar_left .logo-container.is-visible,
+#where .where-contain a.is-visible {
   transform: rotateZ(-5deg);
+}
+
+#navbar .navbar_left .logo-container.is-visible .logo.is-visible,
+#where .where-contain a.is-visible {
+  opacity: 1;
 }
 
 #projects .project-tile .project-tile_alink.is-visible{
@@ -178,6 +237,10 @@ a:focus {
 #projects {
   width: 100%;
   height: 100vh;
+}
+
+#welcome-section {
+  height: 100%;
 }
 
 #welcome-section h1 {
@@ -194,17 +257,112 @@ a:focus {
 
 #about_section {
   position: relative;
+  height: 100%;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 10rem 4rem 10rem;
+  padding: 4rem 4rem 4rem 12rem;
   width: auto;
+  margin-bottom: -6rem;
   z-index: -1111;
+}
+
+#about_section .about-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 0.5fr 0.5fr;
+  gap: 1rem 1rem;
+  justify-content: stretch;
+}
+
+#about_section .about-container #about-title {
+  position: absolute;
+  display: inline-block;
+  top: 13rem;
+  padding: 0 0 0 1rem;
+  font-size: var(--font-size-subtitle);
+}
+
+#about_section .about-container #about-title::after {
+  content: '';
+  position: relative;
+  display: inline-block;
+  background: var(--second-color);
+  height: 4px;
+  left: -6.4rem;
+  top: 0.8rem;
+  width: 4.8rem;
+}
+
+#about_section .about-container .about_description {
+  position: relative;
+  padding: 1rem;
+  top: 2rem;
+  height: fit-content;
+  letter-spacing: 0.3px;
+  grid-column: 1;
+  grid-row: 1 / 2;
+  align-self: center;
+  text-align: left;
+}
+
+#about_section .about-container .about_description h2 {
+  position: relative;
+  font-size: var(--font-size-nav);
+}
+
+#about_section .about-container .about_description h2::after {
+  content: '';
+  position: relative;
+  display: inline-block;
+  background: var(--second-color);
+  height: 4px;
+  left: -12.5rem;
+  top: 0.8rem;
+  width: 11rem;
+}
+
+#about_section .about-container .about_description p {
+  font-size: 1.3rem;
+  font-family: var(--secondary-font);
+  font-weight: 700;
+}
+
+#about_section .about-container .about-languages h2 {
+  position: absolute;
+  font-size: 2rem;
+  color: var(--second-color) !important;
+  top: 10rem;
+  right: 15rem;
+}
+
+#about_section .about-container ul {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / 2;
+  margin: 2rem;
+  padding: 0;
+  top: 8rem;
+  left: 0;
+  text-align: left;
+  align-self: center;
+}
+
+#about_section .about-container ul p {
+  margin: 0.8rem;
+  color: var(--second-color) !important;
+}
+
+#about_section .about-container ul li {
+  list-style: none;
+  padding-left: 3rem;
+  font-size: 1.1rem;
+  font-family: var(--secondary-font);
+  font-weight: 900
 }
 
 hr {
   position: relative;
-  top: 2rem;
   left: 12rem;
   width: 72.5%;
   height: 0.5rem;
@@ -219,15 +377,15 @@ hr {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 10rem 4rem 10rem;
+  padding: 6rem 10rem 4rem 10rem;
+  margin-bottom: -10rem;
   width: auto;
-  height: auto;
-  margin-bottom: 4rem;
+  height: 100%;
   z-index: -1111;
 }
 
 #project-title,
-#contact-title{
+#where-title{
   position: relative;
   text-align: center;
   top: 2.5rem;
@@ -235,7 +393,7 @@ hr {
 }
 
 #project-title h2,
-#contact-title h2 {
+#where-title h2 {
   font-size: var(--font-size-subtitle);
 }
 
@@ -243,10 +401,8 @@ hr {
   position: relative;
   left: 3rem;
   display: grid;
-  grid-template-colums: 8rem;
   grid-template-rows: 16rem;
   gap: 4.5rem 0.5rem;
-  justify-items: center;
   justify-content: stretch;
 }
 
@@ -270,11 +426,11 @@ hr {
 }
 
 .project-tile a:hover {
-  border: 4px solid rgb(122, 102, 0);
+  border: 4px solid var(--second-color);
 }
 
 .project-tile a:hover > h2 {
-  background: rgb(122, 102, 0);
+  background: var(--second-color);
 }
 
 .project-tile img {
@@ -313,34 +469,83 @@ hr {
   font-size: var(--font-size-about);
 }
 
-#contact {
-  margin: 4rem 0 3rem 0;
-}
-
-#contact-title {
-  margin: 0 0 6rem 0;
-}
-
-#contact .contact-contain {
+#where {
   position: relative;
-  text-align: center;
+  height: 72vh;
+  margin: 4rem 0 3rem 0;
+  top: 10rem;
+  z-index: -1111;
 }
 
-#contact .contact-contain a {
-  margin: 4rem;
-  font-size: var(--font-size-nav);
+#where-title {
+  margin: 0 0 6rem 0;
+  z-index: -1111;
+}
+
+#where .where-contain {
+  position: relative;
+  display: grid;
+  width: 40%;
+  left: 14rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 2rem;
+}
+
+#where .where-contain a {
+  display: inline-block;
+  text-align:center;
+  margin-top: 1rem;
+  padding: 1rem;
+  position: relative;
+  font-size: 1.8rem;
   opacity: 0;
-  transition: transform 4s .25s cubic-bezier(0, 1, .3, 1),
+  transition: transform 2s .25s cubic-bezier(0, 1, .2, 2),
               opacity .3s .25s ease-out;
   will-change: transform, opacity;
 }
 
+#where .where-contain .mail {
+
+}
+
+#where .where-contain a:hover,
+#where .where-contain a:focus {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+#where .where-contain a:hover:after,
+#where .where-contain a:focus:after {
+  transform: scaleX(1);
+}
+
+#where .where-contain a:after {
+  background-color: var(--second-color);
+  width: 4rem;
+  height: 0.1rem;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 0.5rem;
+  transform: scaleX(0);
+  transition: all .2s ease;
+  position: absolute;
+  content: '';
+}
+
 footer {
-  height: 2rem;
-  text-align: right;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  place-items: end;
+  height: 3rem;
+  margin: 2rem;
 }
 
 footer p {
+  position: relative;
+  text-align: right;
   margin-right: 3rem;
 }
 

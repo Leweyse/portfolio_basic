@@ -8,8 +8,10 @@
     <body>
         <nav id="navbar">
             <div class="navbar_section navbar_left">
-                <a href="#welcome-section" class="logo show-on-scroll btn-flip" data-back="Web Developer" data-front="Daryl"></a>
-                <a id="about_navbar" class="hover-this" href="#about">
+                <div class="logo-container show-on-scroll">
+                  <a href="#welcome-section" class="logo show-on-scroll btn-flip" data-back="Web Developer" data-front="Daryl"></a>
+                </div>
+                <a id="about_navbar" class="hover-this" href="#about_section">
                     <span>A</span>
                     <span>b</span>
                     <span>o</span>
@@ -20,17 +22,67 @@
                 </a>
             </div>
             <div class="navbar_section navbar_right">
-                <a href="#projects"><span>Projects</span></a>
-                <a href="#contact"><span>Contact</span></a>
+                <div class="navbar_right-container">
+                    <a class="projects_link" href="#projects"><span>Projects</span></a>
+                    <a class="projects_link" href="#where"><span>Contact</span></a>
+                </div>
             </div>
         </nav>
         <section id="welcome-section">
             <h1>Welcome</h1>
-            <h1>To My Portafolio</h1>
+            <h1>To My Portfolio</h1>
         </section>
         <hr class="line"/>
         <section id="about_section">
-
+            <div class="about-container">
+                <h2 id="about-title">My name is Daryl</h2>
+                <div class="about_description">
+                    <h2>I'm a Web Developer</h2>
+                    <br />
+                    <p>Since I decided to turn my passion into a career, I have been self-taught for much of my time in this world. I am passionate about web development, and I continually challenge myself to learn something new. I value being able to share knowledge with other people, it is exciting to create something with a group that shares your enthusiasm. I am looking to hone my skills and create new, increasingly ambitious projects.</p>
+                </div>
+                <div class="about-languages">
+                  <h2>What Can I Do</h2>
+                  <ul>
+                    <p>
+                      HTML5
+                      <li>Handlebars</li>
+                    </p>
+                    <p>
+                      CSS3
+                      <li>CSS Grid</li>
+                      <li>CSS Flex</li>
+                      <li>SASS & SCSS</li>
+                    </p>
+                    <p>
+                      JavaScript
+                      <li>Express</li>
+                      <li>Mongoose</li>
+                      <li>Passport</li>
+                      <li>React JS</li>
+                      <li>React Spring</li>
+                      <li>React Router</li>
+                    </p>
+                  </ul>
+                </div>
+                <div class="about-languages">
+                  <ul>
+                    <p>
+                      MongoDB
+                      <li>MongoDB Compass</li>
+                      <li>Documents and Collections</li>
+                      <li>Aggregation: Map-Reduce</li>
+                      <li>PassportJS validation</li>
+                      <li>Protect Data with BcryptJS</li>
+                      <li>MongoDB Atlas</li>
+                    </p>
+                    <p>
+                      Git
+                      <li>Version Control</li>
+                    </p>
+                  </ul>
+                </div>
+            </div>
         </section>
         <hr class="line"/>
         <section id="projects">
@@ -50,8 +102,8 @@
                         <span></span>Technical Documentation<span></span>
                     </h2>
                 </a>
-                <a class="project-tile-c project-tile_alink" href="https://github.com/Leweyse/learn_-faster" target="_blank">
-                    <img src="https://vrttaal.net/sites/default/files/styles/3_2_600x400/public/2018-11/27b54998-3f08-11e7-9eb3-02b7b76bf47f_0.jpg?h=c673cd1c&itok=3RIC-ijn" />
+                <a class="project-tile-c project-tile_alink" href="https://github.com/Leweyse/habla" target="_blank">
+                    <img src="https://i.pinimg.com/originals/ab/65/14/ab65145d729a752fc25eb8ea5a3fedc0.jpg" />
                     <h2>
                         <span></span>Habla<span></span>
                     </h2>
@@ -59,14 +111,16 @@
             </div>
         </section>
         <hr class="line"/>
-        <section id="contact">
-            <div id="contact-title">
-                <h2>Contact</h2>
+        <section id="where">
+            <div id="where-title">
+                <h2>I'm here</h2>
             </div>
-            <div class="contact-contain">
-                <a class="profile-link" href="https://github.com/Leweyse" target="_blank">Github</a>
-                <a class="profile-link" href="https://codepen.io/Leweyse">CodePen</a>
-                <a class="profile-link" href="https://github.com/Leweyse" target="_blank">Github</a>
+            <div class="where-contain">
+                <a class="profile-link" href="https://github.com/Leweyse/habla" target="_blank">Github</a>
+                <a class="profile-link" href="https://codepen.io/Leweyse" target="_blank">CodePen</a>
+                <a class="profile-link" href="https://www.codewars.com/users/Leweyse" target="_blank">Codewars</a>
+                <a class="profile-link" href="https://www.freecodecamp.org/leweyse" target="_blank">FreeCodeCamp</a>
+                <a class="profile-link mail" href="mailto:darylcastro67@gmail.com">Email</a>
             </div>
         </section>
         <footer>
@@ -77,6 +131,6 @@
               </a>
             </p>
         </footer>
-       <script src="index.js" charset="utf-8"></script>
+        <script src="index.js" charset="utf-8"></script>
     </body>
 </html>
