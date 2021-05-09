@@ -41,7 +41,7 @@ body {
   height: 100vh;
   min-height: 20vh;
   background: var(--clr-principal);
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 hr {
