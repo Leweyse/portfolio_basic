@@ -2,8 +2,11 @@ const link = document.querySelectorAll('#navbar .navbar_section .hover-this');
 const elementsToShow = document.querySelectorAll('.show-on-scroll');
 const plink = document.querySelectorAll('.profile-link');
 const alink = document.querySelectorAll('.project-tile_alink');
+const cardA = document.querySelector('.card-a');
+const cardB = document.querySelector('.card-b');
+const cardC = document.querySelector('.card-c');
 
-const all_e = [...elementsToShow, ...plink, ...alink];
+const all_e = [...elementsToShow, ...plink, ...alink, cardA, cardB, cardC];
 
 // Detect request animation frame
 const scroll = window.requestAnimationFrame || function(callback) { window.setTimeout(callback, 1000/60) };
@@ -42,12 +45,11 @@ function loop() {
 //Button "About Me "
 const animate_link = function (e) {
     const span = this.querySelectorAll('#navbar span');
-    const { offsetX: x, offsetY: y } = e,
-    { offsetWidth: width, offsetHeight: height } = this,
-
-    move = 20,
-    xMove = (x / width * (move * 2) - move),
-    yMove = (y / height * (move * 2) - move);
+    const { offsetX: x, offsetY: y } = e;
+    const { offsetWidth: width, offsetHeight: height } = this;
+    const move = 20;
+    const xMove = (x / width * (move * 2) - move);
+    const yMove = (y / height * (move * 2) - move);
 
     for (var i = 0; i < span.length; i++) {
       span[i].style.transform = `translate(${xMove}px, ${yMove}px)`;
