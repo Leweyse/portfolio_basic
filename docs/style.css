@@ -9,11 +9,10 @@
   --font-size-t: 1.7rem;
   --font-size-about: 1.2rem;
   --font-size-details: 1rem;
-  --clr-principal: #FAD200;
-  --clr-secondary: rgb(122, 102, 0);
-  --clr-neutral-900: hsl(207, 19%, 9%);
-  --clr-neutral-100: hsl(0, 0%, 100%);
-  --clr-accent-400: hsl(142, 90%, 61%);
+  --clr-principal: #0D0D0D;
+  --clr-secondary: #F2F2F2;
+  --clr-title: #F23535;
+  --clr-logo: #A62424;
 }
 
 * {
@@ -21,7 +20,7 @@
   font-size: var(--font-size-details);
   margin: 0;
   padding: 0;
-  color: #FFFAFA;
+  color: transparent;
   box-sizing: border-box;
 
   animation: text_reveal 0.5s ease forwards;
@@ -41,7 +40,7 @@ body {
   height: 100vh;
   min-height: 20vh;
   background: var(--clr-principal);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 hr {
@@ -49,10 +48,13 @@ hr {
   left: 12rem;
   width: 72.5%;
   height: 0.5rem;
-  background: #fff;
+  background: var(--clr-title);
   border: none;
   border-radius: 1rem;
   z-index: -111;
+  transform-origin: center;
+
+  animation: hr_reveal 5000ms infinite ease;
 }
 
 h1 {
@@ -111,8 +113,8 @@ a:focus {
 #navbar .navbar_left .logo-container .logo {
   position: relative;
   display: inline-block;
-  border: 1.2rem solid #fff;
-  border-bottom: 1.2rem solid #fff;
+  border: 1.2rem solid var(--clr-logo);
+  border-bottom: 1.2rem solid var(--clr-logo);
   border-radius: .25rem;
   box-shadow: 1rem 1rem 2rem .25rem rgba(0,0,0,.2);
   opacity: 0;
@@ -121,7 +123,7 @@ a:focus {
   width: 100%;
   will-change: transform, opacity;
 	outline: 0;
-	color: #fff;
+	color: var(--clr-secondary) !important;
 	line-height: 2rem;
 	text-align: center;
 	text-decoration: none;
@@ -132,38 +134,37 @@ a:focus {
   transform: translateY(35%) rotateX(0);
 }
 
-#navbar .navbar_left .logo-container .logo:hover:before{
+#navbar .navbar_left .logo-container .logo:hover:before {
   opacity: 0;
   transform: translateY(50%) rotateX(90deg);
 }
 
-#navbar .navbar_left .logo-container .logo:after{
+#navbar .navbar_left .logo-container .logo:after {
+  content: attr(data-back);
+  position: absolute;
+  display: block;
   top: 0;
   opacity: 0;
   width: 91%;
-  color: var(--clr-principal);
+  color: var(--clr-secondary);
+  background: var(--clr-logo);
   font-size: 1.2rem;
-  display: block;
   transition: 0.5s;
-  position: absolute;
-  background: #fff;
-  content: attr(data-back);
   transform: translateY(-50%) rotateX(90deg);
 }
 
-#navbar .navbar_left .logo-container .logo:before{
+#navbar .navbar_left .logo-container .logo:before {
+  content: attr(data-front);
+  position: relative;
+  display: block;
   top: 0;
   left: 0;
-  opacity: 1;
-  color: #fff;
-  font-size: 1.7rem;
-  display: block;
   padding: 0 30px;
-  line-height: 40px;
-  transition: 0.5s;
-  position: relative;
+  font-size: 1.7rem;
   background: var(--clr-principal);
-  content: attr(data-front);
+  line-height: 40px;
+  opacity: 1;
+  transition: 0.5s;
   transform: translateY(0) rotateX(0);
 }
 
@@ -201,7 +202,7 @@ a:focus {
 #navbar .navbar_right .navbar_right-container a {
   position: relative;
   display: inline-block;
-  color: rgba(0, 0, 0, .85);
+  color: #A6281C;
   border-radius: 0.5rem;
   text-align:center;
   transition: all .2s ease;
@@ -210,7 +211,6 @@ a:focus {
 #navbar .navbar_right .navbar_right-container a:hover,
 #navbar .navbar_right .navbar_right-container a:focus {
   transform: scale(1.2);
-  color: rgba(0, 0, 0, 1);
 }
 
 #navbar .navbar_right .navbar_right-container a:hover:after,
@@ -245,11 +245,8 @@ a:focus {
 }
 
 #navbar .navbar_left .logo-container.is-visible .logo.is-visible,
-#where .where-contain a.is-visible {
-  opacity: 1;
-}
-
-#projects .project-tile .project-tile_alink.is-visible{
+#where .where-contain a.is-visible,
+#projects .project-tile .project-tile_alink.is-visible {
   opacity: 1;
 }
 
@@ -269,11 +266,14 @@ a:focus {
   width: 35rem;
   top: 50%;
   left: 50%;
-  color: transparent;
+  color: var(--clr-secondary);
   font-size: var(--font-size-title);
   text-align: right;
   transform: translate(-50%, -50%);
-  animation-delay: 1s;
+}
+
+#welcome-section h1:nth-child(2) {
+  color: var(--clr-secondary) !important;
 }
 
 #about_section {
@@ -342,6 +342,7 @@ a:focus {
 }
 
 #about_section .about-container .about_description p {
+  color: var(--clr-secondary) !important;
   font-size: 1.3rem;
   font-family: var(--font-secondary);
   font-weight: 500;
@@ -350,7 +351,7 @@ a:focus {
 #about_section .about-container .about-languages h2 {
   position: absolute;
   font-size: 2rem;
-  color: var(--clr-secondary) !important;
+  color: var(--clr-title) !important;
   top: 10rem;
   right: 22rem;
 }
@@ -368,12 +369,12 @@ a:focus {
 
 #about_section .about-container ul p {
   margin: 0.8rem;
-  color: var(--clr-secondary) !important;
 }
 
 #about_section .about-container ul li {
   list-style: none;
   padding-left: 3rem;
+  color: var(--clr-secondary) !important;
   font-size: 1.1rem;
   font-family: var(--font-secondary);
   font-weight: 900
@@ -384,18 +385,17 @@ a:focus {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 10rem 4rem 10rem;
-  margin: 2rem;
+  padding: 4rem 0 4rem 10rem;
+  margin: 2rem 2rem 6rem 2rem;
   width: auto;
-  height: 100%;
+  height: auto;
   z-index: -1111;
 }
 
 #project-title {
   position: relative;
   text-align: center;
-  top: 1rem;
-  margin: 2rem;
+  margin: 2rem 0 4rem 0;
 }
 
 #card_section {
@@ -403,7 +403,6 @@ a:focus {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 2rem 2rem;
   height: 100vh;
   place-items: center;
   line-height: 1.6;
@@ -436,48 +435,49 @@ a:focus {
 
 #card_section .card-b {
   position: relative;
-  top: 3rem;
-  left: 10rem;
+  top: 12rem;
+  left: 7rem;
   opacity: 0;
-  background: url('https://f1.madcapsoftware.com/blogImages/2019/03/t/e/0/technical-documentation-sites-to-get-you-inspired_1200.png');
+  background: url('https://mantebridts.be/content/images/2020/04/css.png');
   background-position: center;
+  background-size: contain;
   grid-column-start: 2;
   grid-column-end: span 2;
   grid-row-start: 1;
   grid-row-end: span 1;
-  z-index: 3;
+  z-index: 2;
 
-  transition: left 700ms linear,
+  transition: left 800ms linear,
     transform 700ms ease,
     opacity 1200ms ease;
 }
 
 #card_section .card-b.is-visible {
-  left: 0;
+  left: -3rem;
   opacity: 1;
 }
 
 #card_section .card-c {
   position: relative;
-  top: -9rem;
-  left: -3rem;
+  top: 5rem;
+  left: 10rem;
   opacity: 0;
   background: url('https://c2.staticflickr.com/4/3689/10613180113_fdf7bcd316_b.jpg');
   background-position: center;
   background-size: contain;
   grid-column-start: 1;
-  grid-column-end: span 2;
+  grid-column-end: span 1;
   grid-row-start: 2;
   grid-row-end: span 2;
-  z-index: 2;
+  z-index: 3;
 
-  transition: top 700ms linear,
+  transition: left 900ms linear,
     transform 700ms ease,
     opacity 1200ms ease;
 }
 
 #card_section .card-c.is-visible {
-  top: -12rem;
+  left: 0;
   opacity: 1;
 }
 
@@ -500,10 +500,9 @@ a:focus {
 }
 
 #card_section .card {
-  color: var(--clr-neutral-100);
   background-size: cover;
-  padding: 5rem 0 0 0;
-  max-width: 20rem;
+  padding: 10rem 0 0 0;
+  max-width: 30rem;
   justify-self: center;
   overflow: hidden;
   will-change: transform, opacity;
@@ -522,6 +521,7 @@ a:focus {
 #card_section .card .card-content .card-title {
   position: relative;
   width: max-content;
+  color: var(--clr-secondary) !important;
   font-size: var(--font-size-about);
 }
 
@@ -532,8 +532,8 @@ a:focus {
   left: calc(var(--padding) * -1);
   bottom: -2px;
   width: calc(100% + var(--padding));
-  background: var(--clr-accent-400);
-  transform-origin:left;
+  background: var(--clr-title);
+  transform-origin: left;
   transition: transform 500ms ease;
 }
 
@@ -543,12 +543,27 @@ a:focus {
 }
 
 #card_section .card .card-content .card-body {
-  color: hsla(255, 100%, 100%, 0.85);
   margin-top: 1rem;
+  color: var(--clr-secondary) !important;
   font-size: 0.95rem;
   font-family: var(--font-secondary);
   font-weight: 500;
   text-align: left;
+}
+
+#card_section .card-b .card-content .card-title {
+  float: right;
+  margin-bottom: 1rem;
+}
+
+#card_section .card-b .card-content .card-title::after {
+  left: 0;
+  right: calc(var(--padding) * -1);
+  transform-origin: right;
+}
+
+#card_section .card-b .card-content .card-body {
+  clear: right;
 }
 
 @media (hover) {
@@ -757,8 +772,22 @@ footer p {
   }
 }
 
+@keyframes hr_reveal {
+  0% {
+    transform: scaleX(0);
+  }
+
+  50% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+  }
+}
+
 @keyframes text_reveal {
   100% {
-    color: white;
+    color: var(--clr-title);
   }
 }
