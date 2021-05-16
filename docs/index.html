@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
         <title>Leweyse</title>
     </head>
     <body>
@@ -22,10 +23,19 @@
                 </a>
             </div>
             <div class="navbar_section navbar_right">
+                <input type="checkbox" class="nav__cb" id="menu-cb"/>
                 <div class="navbar_right-container">
-                    <a class="projects_link" href="#projects"><span>Projects</span></a>
-                    <a class="projects_link" href="#where"><span>Contact</span></a>
+                    <a id="about-hide" class="projects_link projects_link-a" href="#about_section">
+                        <span class="projects_link-text">About Me</span>
+                    </a>
+                    <a class="projects_link projects_link-b" href="#projects">
+                        <span class="projects_link-text">Projects</span>
+                    </a>
+                    <a class="projects_link projects_link-c" href="#where">
+                        <span class="projects_link-text">Contact</span>
+                    </a>
                 </div>
+                <label class="nav__btn" for="menu-cb"></label>
             </div>
         </nav>
         <section id="welcome-section">
