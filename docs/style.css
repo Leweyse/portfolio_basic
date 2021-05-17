@@ -1069,6 +1069,14 @@ footer p i {
     overflow-x: hidden;
   }
 
+  hr {
+    left: 6.5rem;
+  }
+
+  footer {
+    display: block;
+  }
+
   #about_navbar {
     display: none !important;
   }
