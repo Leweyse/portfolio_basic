@@ -170,19 +170,24 @@ a:focus {
 }
 
 #navbar .navbar_left #about_navbar {
-  padding: 2rem;
-  width: 1rem;
-  left: 3.5rem;
+  position: relative;
+  line-height: 4rem;
+  width: 4rem;
+  min-height: 16rem;
+  margin: 0;
+  padding: 0;
+  left: 5rem;
   top: 4.5rem;
-  margin: 0.8rem 1rem 1rem 1rem;
-}
-
-#navbar .navbar_left #about_navbar span {
   font-size: var(--font-size-about);
+  text-align: center;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
 }
 
-#navbar .navbar_left #about_navbar #m {
-  padding-top: 1rem;
+#navbar .navbar_left #about_navbar:focus,
+#navbar .navbar_left #about_navbar:hover {
+  text-decoration: none;
+  outline: none;
 }
 
 #navbar .navbar_right {
@@ -269,6 +274,7 @@ a:focus {
   left: 50%;
   color: var(--clr-text);
   font-size: var(--font-size-title);
+  font-family: var(--font-secondary);
   text-align: right;
   transform: translate(-50%, -50%);
   z-index: -1111;
@@ -416,7 +422,6 @@ a:focus {
 
 #card_section .card-a {
   position: relative;
-  right: 10rem;
   opacity: 0;
   background: url('https://i.pinimg.com/originals/ab/65/14/ab65145d729a752fc25eb8ea5a3fedc0.jpg');
   background-position: center;
@@ -426,6 +431,7 @@ a:focus {
   grid-row-start: 1;
   grid-row-end: span 1;
   z-index: 1;
+  transform: translate(-10rem, 0);
 
   transition: right 700ms ease-in,
     transform 700ms ease,
@@ -433,14 +439,14 @@ a:focus {
 }
 
 #card_section .card-a.is-visible {
-  right: 0;
+  transform: translate(0, 0);
   opacity: 1;
 }
 
 #card_section .card-b {
   position: relative;
   top: 12rem;
-  left: 7rem;
+  left: -3rem;
   opacity: 0;
   background: url('https://mantebridts.be/content/images/2020/04/css.png');
   background-position: center;
@@ -450,6 +456,7 @@ a:focus {
   grid-row-start: 1;
   grid-row-end: span 1;
   z-index: 2;
+  transform: translate(10rem, 0);
 
   transition: left 800ms ease-in,
     transform 700ms ease,
@@ -457,14 +464,13 @@ a:focus {
 }
 
 #card_section .card-b.is-visible {
-  left: -3rem;
+  transform: translate(0, 0);
   opacity: 1;
 }
 
 #card_section .card-c {
   position: relative;
   top: 5rem;
-  left: 10rem;
   opacity: 0;
   background: url('https://c2.staticflickr.com/4/3689/10613180113_fdf7bcd316_b.jpg');
   background-position: center;
@@ -474,6 +480,7 @@ a:focus {
   grid-row-start: 2;
   grid-row-end: span 2;
   z-index: 3;
+  transform: translate(-10rem, 0);
 
   transition: left 900ms ease-in,
     transform 700ms ease,
@@ -481,7 +488,7 @@ a:focus {
 }
 
 #card_section .card-c.is-visible {
-  left: 0;
+  transform: translate(0, 0);
   opacity: 1;
 }
 
@@ -1069,6 +1076,14 @@ footer p i {
     overflow-x: hidden;
   }
 
+  hr {
+    left: 6.5rem;
+  }
+
+  footer {
+    display: block;
+  }
+
   #about_navbar {
     display: none !important;
   }
@@ -1096,13 +1111,20 @@ footer p i {
     top: 0;
     left: 0;
     padding: 0 15px;
-    font-size: 1.7rem;
+    font-size: 2rem;
     background: var(--clr-bg);
     line-height: 30px;
     opacity: 1;
     transition: 0.5s;
     transform: translateY(0) rotateX(0);
   }
+
+    #navbar .navbar_left .logo-container .logo:after {
+      top: 0;
+      right: 0.5rem;
+      padding: 0.3rem;
+      font-size: 1.2rem;
+    }
 
   #navbar .navbar_right {
     left: 90%;
@@ -1191,7 +1213,7 @@ footer p i {
 
   .nav__btn {
     position: absolute;
-    right: 0.8rem;
+    right: 1rem;
     top: 1.6rem;
     margin: 0;
     cursor: pointer;
@@ -1222,7 +1244,7 @@ footer p i {
 
   .nav__cb:checked ~
   .nav__btn:before {
-    transform: translateY(5px) rotate(-225deg);
+    transform: translateY(4px) rotate(-225deg);
   }
 
   .nav__cb:checked ~
@@ -1232,14 +1254,14 @@ footer p i {
 
   #about_section {
     position: relative;
-    top: 5rem;
-    margin-bottom: 20rem;
+    top: 0;
+    margin-bottom: 18rem;
     padding: 0 5rem 0 5rem;
   }
 
   #about_section .about-container {
     position: relative;
-    top: 10rem;
+    top: 15rem;
     height: auto;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.5fr 0.5fr;
@@ -1275,10 +1297,11 @@ footer p i {
   #about_section .about-container .about_description p {
     position: relative;
     top: 3rem;
+    font-size: 1.5rem;
   }
 
   #about_section .about-container .about-languages h2 {
-    top: 25rem;
+    top: 29rem;
   }
 
   #about_section .about-container ul {
@@ -1293,6 +1316,7 @@ footer p i {
   }
 
   #about_section .about-container ul li {
+    font-size: 1.5rem;
     font-weight: 500;
   }
 
@@ -1300,6 +1324,14 @@ footer p i {
     padding: 4rem 0 4rem 0;
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  #card_section .card .card-content {
+    background: linear-gradient(
+      hsl(0 0% 0% / 0),
+      hsl(20 0% 0% / .8) 19%,
+      hsl(0 0% 0% / 1)
+    );
   }
 
   #card_section .card .card-content .card-title {
@@ -1373,16 +1405,20 @@ footer p i {
   }
 
   #card_section .card-b {
-    height: 23rem;
+    margin-bottom: 1.5rem;
+    height: 24rem;
   }
 
   #card_section .card-b .card-content .card-title {
     top: 0;
-    mix-blend-mode: difference;
+  }
+
+  #card_section .card .card-content .card-title {
+    font-size: 1.9rem;
   }
 
   #card_section .card .card-content .card-body {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 400;
   }
 
@@ -1390,16 +1426,26 @@ footer p i {
     top: -1rem;
   }
 
+  #card_section .card-c.is-visible {
+    transform: translate(7rem, 0);
+    opacity: 1;
+  }
+
   #where {
-    top: 3rem;
-    height: 70%;
+    top: 10rem;    
+    height: 85%;
   }
 
   #where .where-contain {
-    margin: 10rem 7rem 3rem 7rem;
+    margin: 13rem 7rem 3rem 7rem;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
     gap: 3rem;
+  }
+
+  footer {
+    height: 8%;
+    padding: 2rem;
   }
 }
 
@@ -1412,6 +1458,31 @@ footer p i {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
     transition-delay: 0ms !important
+  }
+}
+
+/* @media screen and (min-width: 0) and (max-width: 767px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    padding: 2rem;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+} */
+
+@media (orientation: landscape) and (max-width: 777px) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
   }
 }
 

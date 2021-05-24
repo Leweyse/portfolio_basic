@@ -13,14 +13,15 @@ const scroll = window.requestAnimationFrame || function(callback) { window.setTi
 
 // Helper function from: http://stackoverflow.com/a/7557433/274826
 function isElementInViewport(el) {
-  // special bonus for those using jQuery
+
   if (typeof jQuery === "function" && el instanceof jQuery) {
     el = el[0];
   }
-  var rect = el.getBoundingClientRect();
+
+  let rect = el.getBoundingClientRect();
+
   return (
-    (rect.top <= 0
-      && rect.bottom >= 0)
+    (rect.top <= 0 && rect.bottom >= 0)
     ||
     (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
       rect.top <= (window.innerHeight || document.documentElement.clientHeight))
@@ -34,28 +35,26 @@ function isElementInViewport(el) {
 loop();
 
 function loop() {
-  Array.prototype.forEach.call(all_e, function(element){
-    if (isElementInViewport(element)) element.classList.add('is-visible');
-    else element.classList.remove('is-visible');
-  });
+  [...all_e].forEach((elem) => {
+    if (isElementInViewport(elem)) elem.classList.add('is-visible')
+    else elem.classList.remove('is-visible')
+  })
 
   scroll(loop);
 }
 
 //Button "About Me "
 const animate_link = function (e) {
-    const span = this.querySelectorAll('#navbar span');
+    const btn = document.getElementById('about_navbar');
     const { offsetX: x, offsetY: y } = e;
     const { offsetWidth: width, offsetHeight: height } = this;
     const move = 20;
-    const xMove = (x / width * (move * 2) - move);
-    const yMove = (y / height * (move * 2) - move);
+    const xMove = (x / width * (move * 2) - move) / 15;
+    const yMove = (y / height * (move * 2) - move) / 15;
 
-    for (var i = 0; i < span.length; i++) {
-      span[i].style.transform = `translate(${xMove}px, ${yMove}px)`;
+    btn.style.transform = `translate(${xMove}rem, ${yMove}rem)`;
 
-      if (e.type === 'mouseleave') span[i].style.transform = '';
-    }
+    if (e.type === 'mouseleave') btn.style.transform = '';
 };
 
 link.forEach(b => b.addEventListener('mousemove', animate_link));
