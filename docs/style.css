@@ -1094,10 +1094,18 @@ footer p i {
     margin-bottom: -2rem;
   }
 
-  #welcome-section,
   #about_section {
     width: 100%;
     height: 82vh;
+  }
+
+  #welcome-section {
+    width: 100%;
+    height: 100vh;
+  }
+
+  #welcome-section h1 {
+    font-size:5rem;
   }
 
   #navbar .navbar_left .logo-container {
@@ -1321,7 +1329,7 @@ footer p i {
   }
 
   #projects {
-    padding: 4rem 0 4rem 0;
+    padding: 10rem 0 4rem 0;
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -1346,7 +1354,7 @@ footer p i {
   #project-title {
     top: 1rem;
     left: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
   }
 
   #card_section {
