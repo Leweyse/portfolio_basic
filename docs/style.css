@@ -559,7 +559,7 @@ a:focus {
   clear: right;
 }
 
-@media (hover) {
+@media (hover: hover) {
   #card_section .card-a:hover,
   #card_section .card-a:focus-within {
     transform: scale(1.05);
@@ -873,7 +873,7 @@ footer p i {
     margin-bottom: 0.4rem;
   }
 
-  @media (hover) {
+  @media (hover: hover) {
       .nav__btn:hover:before,
       .nav__btn:hover:after {
         background: #00bdea;
