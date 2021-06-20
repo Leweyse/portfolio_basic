@@ -1,0 +1,60 @@
+@use '../abstracts' as *;
+
+* {
+    font-family: $font-principal;
+    font-size: $font-size-details;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    animation: text_reveal 0.5s ease forwards;
+
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100vw;
+    min-width: 25.75em;
+    min-height: 100vh;
+    background: $clr-bg;
+    overflow-x: hidden;
+}
+
+hr {
+    position: relative;
+    left: 12rem;
+    width: 72.5%;
+    height: 0.5rem;
+    background: $clr-accent;
+    border: none;
+    border-radius: 1rem;
+    z-index: -111;
+    transform-origin: center;
+
+    animation: hr_reveal 5000ms infinite ease;
+}
+
+h1 {
+    font-family: $font-principal;
+}
+
+a {
+    text-decoration: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+::selection {
+    background-color: $clr-text;
+    color: $clr-accent;
+    mix-blend-mode: difference;
+}

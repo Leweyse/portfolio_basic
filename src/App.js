@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Fade } from "react-awesome-reveal";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import NavBar from './components/NavBar';
+import Welcome from './components/Welcome';
+import Description from './components/Description';
+import Projects from './components/Projects';
+import Where from './components/Where';
+
+class App extends React.Component {
+  render = () => {
+    return (
+      <>  
+        <NavBar />
+          <main>
+            <Fade delay={500} triggerOnce>
+              <Welcome />
+            </Fade>
+            <Fade delay={500} triggerOnce>
+              <Description />
+            </Fade>
+            <Fade delay={500} triggerOnce>
+              <Projects />
+            </Fade>
+            <Fade delay={500} triggerOnce>
+              <Where />
+            </Fade>
+          </main>
+      </>
+    )
+  }
 }
 
 export default App;
