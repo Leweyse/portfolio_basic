@@ -9,7 +9,6 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    z-index: -1111;
 
     #project-title {
         position: relative;
@@ -30,7 +29,6 @@
         place-items: center;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        z-index: -1111;
 
         .card {
             background-size: cover;

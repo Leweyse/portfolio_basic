@@ -48,7 +48,7 @@ const animate_link = function (e) {
     const btn = document.getElementById('about_navbar');
     const { offsetX: x, offsetY: y } = e;
     const { offsetWidth: width, offsetHeight: height } = this;
-    const move = 20;
+    const move = 25;
     const xMove = (x / width * (move * 2) - move) / 15;
     const yMove = (y / height * (move * 2) - move) / 15;
 

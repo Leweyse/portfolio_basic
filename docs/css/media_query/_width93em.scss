@@ -1,0 +1,55 @@
+@media (min-width: 93.75em) {
+    html {
+        font-size: 130%;
+    }
+
+    #navbar {
+        .navbar_left {
+            .logo-container {
+                .logo {
+                    &:after {
+                        top: -0.3rem;
+                        right: 0.5rem;
+                        padding: 0.3rem;
+                        font-size: 1.05rem;
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    #about_section {
+        height: 100vh;
+    
+        .about-container {
+            grid-template-columns: 1fr 0.5fr 0.6fr;
+            gap: 0.9rem;
+            justify-content: stretch;
+    
+            #about-title {
+                top: 12rem;
+                padding: 0 0 0 0.9rem;
+                font-size: 2.75rem;
+            }
+    
+            .about_description {
+    
+                h2 {
+                    position: absolute;
+                    top: 2rem;
+                }
+            }
+    
+            .about-languages {
+                position: relative;
+                top: 2rem;
+
+                h2 {
+                    width: max-content;
+                    margin: 2rem 6rem;
+                }
+            }
+        }
+    }
+}

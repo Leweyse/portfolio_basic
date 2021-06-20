@@ -43,22 +43,48 @@
         }
     }
 
+    #about_section {
+        height: 100vh;
+
+        .about-container {
+            .about_description {
+                h2 {
+                    &::after {
+                        top: 2.3rem;
+                        left: 43%;
+                    }
+                }
+            }
+        }
+    }
+
     #projects {
+        height: 150vh;
+
         #card_section {
+            .card {
+                width: 35rem;
+            }
+
             .card-b {
-                top: -6rem;
+                top: -7.5rem;
             }
         }
     }
 
     #where {
-        #footer {
-            p { 
-                top: 0;
-                font-size: 1.3rem; 
-                
-                i {
-                    font-size: 1.4rem;
+        .where-container {
+            top: 7.5rem;
+
+            #footer {
+                margin-top: 25%;
+
+                p { 
+                    font-size: 1.3rem; 
+                    
+                    i {
+                        font-size: 1.4rem;
+                    }
                 }
             }
         }

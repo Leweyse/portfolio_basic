@@ -29,7 +29,7 @@
 
         .navbar_right {
             .nav__btn {
-                right: 1.1rem;
+                right: 1rem;
                 top: 1.6rem;
                 padding: 0.5rem;
             }
@@ -41,9 +41,9 @@
     }
 
     #where {
-        #footer {
-            p { 
-                top: 6.5rem;
+        .where-container {
+            #footer {
+                margin-top: 20%;
             }
         }
     }

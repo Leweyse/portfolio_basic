@@ -19,9 +19,9 @@ html {
 }
 
 body {
-  width: 100%;
-  height: 100vh;
-  min-height: 20vh;
+  width: 100vw;
+  min-width: 32.75em;
+  min-height: 100vh;
   background: #F6EEE3;
   overflow-x: hidden;
 }
@@ -57,6 +57,7 @@ a:focus {
   height: 10rem;
   flex-direction: row;
   width: 100%;
+  z-index: 1111;
 }
 #navbar .hover-this {
   transition: all 0.3s ease;
@@ -149,10 +150,9 @@ a:focus {
   line-height: 4rem;
   width: 4rem;
   min-height: 16rem;
-  margin: 0;
+  margin-top: calc(20rem - 100%);
   padding: 0;
   left: 5rem;
-  top: 4.5rem;
   font-size: 1.2rem;
   text-align: center;
   -ms-writing-mode: tb-lr;
@@ -166,10 +166,11 @@ a:focus {
 }
 #navbar .navbar_right {
   position: relative;
+  margin: 0 2rem 0 auto;
   height: 2rem;
-  align-items: center;
   top: 3.5rem;
-  left: 50%;
+  right: 1rem;
+  align-items: center;
 }
 #navbar .navbar_right .nav__cb {
   position: absolute;
@@ -353,7 +354,6 @@ a:focus {
   align-items: center;
   justify-content: center;
   text-align: center;
-  z-index: -1111;
 }
 #projects #project-title {
   position: relative;
@@ -372,7 +372,6 @@ a:focus {
   place-items: center;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  z-index: -1111;
 }
 #projects #card_section .card {
   background-size: cover;
@@ -547,23 +546,26 @@ a:focus {
   width: 100vw;
   margin-left: auto;
   margin-right: auto;
-  z-index: -1111;
 }
-#where #where-title {
+#where .where-container {
+  position: relative;
+  top: 28%;
+}
+#where .where-container #where-title {
   position: relative;
   text-align: center;
-  top: 14.5rem;
+  margin-bottom: auto;
   z-index: -1111;
 }
-#where #where-title h2 {
+#where .where-container #where-title h2 {
   font-size: 3rem;
   margin-bottom: 6rem;
 }
-#where .where-contain {
+#where .where-container .where-contain {
   overflow: hidden;
   position: relative;
   display: grid;
-  top: 13rem;
+  margin-bottom: auto;
   margin-left: 4rem;
   margin-right: auto;
   justify-content: center;
@@ -572,7 +574,7 @@ a:focus {
   grid-template-rows: repeat(2, 1fr);
   gap: 3rem 10rem;
 }
-#where .where-contain a {
+#where .where-container .where-contain a {
   display: inline-block;
   color: #173e43 !important;
   text-align: center;
@@ -584,13 +586,13 @@ a:focus {
   transition: transform 2s 0.25s cubic-bezier(0, 1, 0.2, 2), opacity 0.3s 0.25s ease-out;
   will-change: transform, opacity;
 }
-#where .where-contain a:hover, #where .where-contain a:focus {
+#where .where-container .where-contain a:hover, #where .where-container .where-contain a:focus {
   transform: scale(1.2) !important;
 }
-#where .where-contain a:hover:after, #where .where-contain a:focus:after {
+#where .where-container .where-contain a:hover:after, #where .where-container .where-contain a:focus:after {
   transform: scaleX(1);
 }
-#where .where-contain a:after {
+#where .where-container .where-contain a:after {
   content: "";
   position: absolute;
   background-color: #bf2828;
@@ -603,55 +605,100 @@ a:focus {
   transform: scaleX(0);
   transition: all 0.2s ease;
 }
-#where .where-contain a.is-visible {
+#where .where-container .where-contain a.is-visible {
   opacity: 1;
   transform: rotateZ(-5deg);
 }
-#where .where-contain a:nth-child(1) {
+#where .where-container .where-contain a:nth-child(1) {
   grid-column: 1/1;
   grid-row: 1/1;
 }
-#where .where-contain a:nth-child(2) {
+#where .where-container .where-contain a:nth-child(2) {
   grid-column: 2/2;
   grid-row: 1/1;
 }
-#where .where-contain a:nth-child(3) {
+#where .where-container .where-contain a:nth-child(3) {
   grid-column: 3/3;
   grid-row: 1/1;
 }
-#where .where-contain a:nth-child(4) {
+#where .where-container .where-contain a:nth-child(4) {
   grid-column: 1/1;
   grid-row: 2/2;
 }
-#where .where-contain a:nth-child(5) {
+#where .where-container .where-contain a:nth-child(5) {
   grid-column: 2/2;
   grid-row: 2/2;
 }
-#where .where-contain a:nth-child(4), #where .where-contain a:nth-child(5) {
+#where .where-container .where-contain a:nth-child(4), #where .where-container .where-contain a:nth-child(5) {
   left: 11rem;
 }
-#where #footer {
+#where .where-container #footer {
   position: relative;
   display: grid;
-  top: 18rem;
+  margin-top: 10%;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   place-items: end;
   height: 3rem;
-  margin-bottom: 2rem;
 }
-#where #footer p {
+#where .where-container #footer p {
   position: relative;
   top: -2rem;
   font-size: 1.1rem;
   text-align: right;
   margin-right: 3rem;
 }
-#where #footer p i {
+#where .where-container #footer p i {
   color: #173e43 !important;
   font-size: 1.2rem;
 }
 
+@media (min-width: 93.75em) {
+  html {
+    font-size: 130%;
+  }
+
+  #navbar .navbar_left .logo-container .logo:after {
+    top: -0.3rem;
+    right: 0.5rem;
+    padding: 0.3rem;
+    font-size: 1.05rem;
+    line-height: 30px;
+  }
+
+  #about_section {
+    height: 100vh;
+  }
+  #about_section .about-container {
+    grid-template-columns: 1fr 0.5fr 0.6fr;
+    gap: 0.9rem;
+    justify-content: stretch;
+  }
+  #about_section .about-container #about-title {
+    top: 12rem;
+    padding: 0 0 0 0.9rem;
+    font-size: 2.75rem;
+  }
+  #about_section .about-container .about_description h2 {
+    position: absolute;
+    top: 2rem;
+  }
+  #about_section .about-container .about-languages {
+    position: relative;
+    top: 2rem;
+  }
+  #about_section .about-container .about-languages h2 {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 2rem 6rem;
+  }
+}
+@media (max-width: 81.25rem) {
+  html {
+    font-size: 100%;
+  }
+}
 /*1200px  / 16 = 75em*/
 @media (max-width: 75em) {
   html {
@@ -668,29 +715,29 @@ a:focus {
     display: none !important;
   }
   #navbar .navbar_right {
-    left: 93%;
+    margin: 0 2rem 0 auto;
     overflow: hidden;
     position: absolute;
     width: auto;
     height: auto;
     background: #F6EEE3;
     border-radius: 5px;
-    transform: translate3d(-100%, 0, 0);
+    transform: translate3d(0, 0, 0);
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
   }
   #navbar .navbar_right .nav__cb {
     position: absolute;
     display: block;
-    left: 0;
+    right: 0;
     top: 0;
     opacity: 0;
     pointer-events: none;
     z-index: -1000;
   }
   #navbar .navbar_right .nav__cb:checked ~ .navbar_right-container {
+    margin: 2rem;
     width: 16rem;
     height: 30rem;
-    margin: 2rem;
     transition: height 1s cubic-bezier(0.48, 0.43, 0.29, 1.3), width 1s cubic-bezier(0.48, 0.43, 0.29, 1.3);
   }
   #navbar .navbar_right .nav__cb:checked ~ .navbar_right-container .projects_link-text {
@@ -769,7 +816,7 @@ a:focus {
   #navbar .navbar_right .nav__btn {
     position: absolute;
     right: 0.7rem;
-    top: 1.3rem;
+    top: 1.27rem;
     padding: 0.5rem;
     margin: 0;
     cursor: pointer;
@@ -878,7 +925,7 @@ a:focus {
     font-size: calc(1.2rem + 0.2rem);
   }
   #projects #card_section .card .card-content .card-body {
-    font-size: calc(1.2rem - 0.1rem);
+    font-size: calc(1.2rem);
   }
   #projects #card_section .card-a,
 #projects #card_section .card-c {
@@ -894,14 +941,17 @@ a:focus {
     top: 0 !important;
     padding-top: 7.5rem;
   }
-  #where #where-title {
+  #where .where-container {
+    top: 7%;
+  }
+  #where .where-container #where-title {
     position: relative;
-    top: 5rem;
+    top: 4rem;
     justify-content: center;
     align-items: center;
     z-index: -1111;
   }
-  #where .where-contain {
+  #where .where-container .where-contain {
     margin: 7rem auto;
     top: 4rem;
     left: 0;
@@ -910,38 +960,37 @@ a:focus {
     grid-template-rows: repeat(2, 1fr);
     gap: 5rem;
   }
-  #where .where-contain a:nth-child(1) {
+  #where .where-container .where-contain a:nth-child(1) {
     grid-column: 1/1;
     grid-row: 1/1;
   }
-  #where .where-contain a:nth-child(2) {
+  #where .where-container .where-contain a:nth-child(2) {
     grid-column: 2/2;
     grid-row: 1/1;
   }
-  #where .where-contain a:nth-child(3) {
+  #where .where-container .where-contain a:nth-child(3) {
     grid-column: 3/3;
     grid-row: 1/1;
   }
-  #where .where-contain a:nth-child(4) {
+  #where .where-container .where-contain a:nth-child(4) {
     grid-column: 1/1;
     grid-row: 2/2;
   }
-  #where .where-contain a:nth-child(5) {
+  #where .where-container .where-contain a:nth-child(5) {
     grid-column: 2/2;
     grid-row: 2/2;
   }
-  #where .where-contain a:nth-child(4), #where .where-contain a:nth-child(5) {
+  #where .where-container .where-contain a:nth-child(4), #where .where-container .where-contain a:nth-child(5) {
     left: 10.5rem;
   }
-  #where #footer {
-    top: 2rem;
+  #where .where-container #footer {
+    margin-top: 12.5%;
     right: 7rem;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     place-items: end;
-    margin: 0;
   }
-  #where #footer p {
+  #where .where-container #footer p {
     position: relative;
     top: -1rem;
     right: -3rem;
@@ -949,7 +998,7 @@ a:focus {
     text-align: right;
     font-size: 1.1rem;
   }
-  #where #footer p i {
+  #where .where-container #footer p i {
     font-size: 1.2rem;
   }
 }
@@ -1047,12 +1096,14 @@ a:focus {
     width: 100%;
     top: 2rem !important;
   }
-  #where .where-contain {
-    top: 6rem;
-    left: 0;
+  #where .where-container {
+    top: 15%;
   }
-  #where #footer p {
+  #where .where-container #where-title {
     top: 4rem;
+  }
+  #where .where-container #footer {
+    margin-top: 15.5%;
   }
 }
 /* 980px*/
@@ -1075,7 +1126,7 @@ a:focus {
     line-height: 40px;
   }
   #navbar .navbar_right .nav__btn {
-    right: 1.1rem;
+    right: 1rem;
     top: 1.6rem;
     padding: 0.5rem;
   }
@@ -1083,18 +1134,14 @@ a:focus {
     transform: translateY(4px) rotate(-225deg);
   }
 
-  #where #footer p {
-    top: 6.5rem;
+  #where .where-container #footer {
+    margin-top: 20%;
   }
 }
 /*905px*/
 @media (max-width: 57em) {
   html {
-    font-size: 65%;
-  }
-
-  hr {
-    left: 9rem;
+    font-size: 68%;
   }
 
   #welcome-section {
@@ -1130,9 +1177,6 @@ a:focus {
     opacity: 1;
     transition: 0.5s;
     transform: translateY(0) rotateX(0);
-  }
-  #navbar .navbar_right {
-    left: 90%;
   }
   #navbar .navbar_right .nav__btn {
     position: absolute;
@@ -1280,7 +1324,7 @@ a:focus {
 }
 @media (max-width: 57em) {
   #projects #card_section .card-b {
-    top: -5.5rem;
+    top: -6.5rem;
     left: 1rem;
     grid-column-start: 1;
     grid-column-end: span 1;
@@ -1304,45 +1348,44 @@ a:focus {
     top: 1rem;
     height: 100%;
   }
-  #where .where-contain {
+  #where .where-container .where-contain {
     margin: 2rem 7rem 3rem 7rem;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
     row-gap: 3.5rem;
   }
-  #where .where-contain a:nth-child(1) {
+  #where .where-container .where-contain a:nth-child(1) {
     left: 0;
     grid-column: 1/1;
     grid-row: 1/1;
   }
-  #where .where-contain a:nth-child(2) {
+  #where .where-container .where-contain a:nth-child(2) {
     left: 0;
     grid-column: 1/1;
     grid-row: 2/2;
   }
-  #where .where-contain a:nth-child(3) {
+  #where .where-container .where-contain a:nth-child(3) {
     left: 0;
     grid-column: 1/1;
     grid-row: 3/3;
   }
-  #where .where-contain a:nth-child(4) {
+  #where .where-container .where-contain a:nth-child(4) {
     left: 0;
     grid-column: 1/1;
     grid-row: 4/4;
   }
-  #where .where-contain a:nth-child(5) {
+  #where .where-container .where-contain a:nth-child(5) {
     left: 0;
     grid-column: 1/1;
     grid-row: 5/5;
   }
-  #where #footer {
+  #where .where-container #footer {
     display: block;
-    top: 8.5rem;
-    height: 8%;
+    top: 5%;
     padding: 0;
   }
-  #where #footer p {
-    top: -0.5rem;
+  #where .where-container #footer p {
+    top: -3rem;
   }
 }
 /*672px*/
@@ -1376,15 +1419,34 @@ a:focus {
     transform: translateY(5px) rotate(-225deg);
   }
 
-  #projects #card_section .card-b {
-    top: -6rem;
+  #about_section {
+    height: 100vh;
+  }
+  #about_section .about-container .about_description h2::after {
+    top: 2.3rem;
+    left: 43%;
   }
 
-  #where #footer p {
-    top: 0;
+  #projects {
+    height: 150vh;
+  }
+  #projects #card_section .card {
+    width: 35rem;
+  }
+  #projects #card_section .card-b {
+    top: -7.5rem;
+  }
+
+  #where .where-container {
+    top: 7.5rem;
+  }
+  #where .where-container #footer {
+    margin-top: 25%;
+  }
+  #where .where-container #footer p {
     font-size: 1.3rem;
   }
-  #where #footer p i {
+  #where .where-container #footer p i {
     font-size: 1.4rem;
   }
 }

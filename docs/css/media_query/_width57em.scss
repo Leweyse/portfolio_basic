@@ -3,11 +3,7 @@
 /*905px*/
 @media (max-width: 57em) {
     html {
-        font-size: 65%;
-    }
-
-    hr {
-        left: 9rem;
+        font-size: 68%;
     }
 
     #welcome-section {
@@ -56,8 +52,6 @@
         }
     
         .navbar_right {
-            left: 90%;
-    
             .nav__btn {
                 position: absolute;
                 right: 1.4rem;
@@ -231,7 +225,7 @@
             }
     
             .card-b {
-                top: -5.5rem;
+                top: -6.5rem;
                 left: 1rem;
                 grid-column-start: 1;
                 grid-column-end: span 1;
@@ -256,31 +250,32 @@
         top: 1rem;
         height: 100%;
     
-        .where-contain {
-            margin: 2rem 7rem 3rem 7rem;
-            grid-template-columns: 1fr;
-            grid-template-rows: repeat(5, 1fr);
-            row-gap: 3.5rem;
-    
-            a {
-                @for $i from 1 to 6 {
-                    &:nth-child(#{$i}) {
-                        left: 0;
-                        grid-column: 1 / 1;
-                        grid-row: #{$i} / #{$i};
+        .where-container {
+            .where-contain {
+                margin: 2rem 7rem 3rem 7rem;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 1fr);
+                row-gap: 3.5rem;
+        
+                a {
+                    @for $i from 1 to 6 {
+                        &:nth-child(#{$i}) {
+                            left: 0;
+                            grid-column: 1 / 1;
+                            grid-row: #{$i} / #{$i};
+                        }
                     }
                 }
             }
-        }
-    
-        #footer {
-            display: block;
-            top: 8.5rem;
-            height: 8%;
-            padding: 0;
+        
+            #footer {
+                display: block;
+                top: 5%;
+                padding: 0;
 
-            p {
-                top: -0.5rem;
+                p {
+                    top: -3rem;
+                }
             }
         }
     }

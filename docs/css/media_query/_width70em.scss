@@ -130,14 +130,15 @@
         width: 100%;
         top: 2rem !important;
 
-        .where-contain {
-            top: 6rem;
-            left: 0;
-        }
+        .where-container {
+            top: 15%;
 
-        #footer {
-            p {
+            #where-title {
                 top: 4rem;
+            }
+
+            #footer {
+                margin-top: 15.5%;
             }
         }
     }
